@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexaera - Student Research Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    :root {
+    /* Backgrounds - Clean & Minimal */
+    --bg-page: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-section: rgba(0, 0, 0, 0.02);
+    
+    /* Text - Professional Hierarchy */
+    --text-primary: rgb(17, 0, 55);       /* Main headings #003720 */
+    --text-body: rgb(14, 15, 12);         /* Body text #0e0f0c */
+    --text-secondary: rgb(131, 146, 140); /* Supporting text #83928c */
+    --text-muted: rgb(175, 183, 180);     /* Captions, timestamps #afb7b4 */
+    
+    /* Borders - Subtle Separation */
+    --border-light: rgba(0, 0, 0, 0.1);
+    --border-medium: rgba(0, 0, 0, 0.2);
+    --border-strong: rgba(0, 0, 0, 0.3);
+    
+    /* BRAND COLORS - Green Accent System */
+    --accent-primary: #181628;
+    --accent-strong: #28256b;
+    --accent-text: rgb(13, 27, 121);
+    --accent-wash: rgba(148, 242, 127, 0.1);
+    
+    /* Hero Gradients - Use ONLY for major sections */
+    --gradient-hero: radial-gradient(at 53% 78%, hsla(247, 56%, 44%, 0.185) 0px, transparent 50%), 
+                    radial-gradient(at 71% 91%, hsla(232, 78%, 38%, 0.068) 0px, transparent 50%), 
+                    radial-gradient(at 31% 91%, hsla(240, 48%, 19%, 0.17) 0px, transparent 50%);
+    
+    /* Button Gradients - For CTAs only */
+    --gradient-button: linear-gradient(to bottom right, var(--accent-primary), var(--accent-strong));
+    }
+
+    /* Reset and Base Styles */
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    body {
+    font-family: system-ui, sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--bg-page);
+    color: var(--text-body);
+    line-height: 1.6;
+    }
+
+    /* Typography System */
+    .heading-1 { 
+    font-family: system-ui, sans-serif; 
+    font-weight: 700; 
+    font-size: clamp(2.25rem, 5vw, 4.5rem); 
+    line-height: 0.9; 
+    letter-spacing: -0.02em; 
+    color: var(--text-primary);
+    margin: 0;
+    }
+
+    .heading-2 { 
+    font-family: system-ui, sans-serif; 
+    font-weight: 600; 
+    font-size: clamp(1.875rem, 4vw, 3rem); 
+    line-height: 0.95; 
+    letter-spacing: -0.015em; 
+    color: var(--text-primary);
+    margin: 0;
+    }
+
+    .heading-3 { 
+    font-family: system-ui, sans-serif; 
+    font-weight: 600; 
+    font-size: clamp(1.25rem, 3vw, 1.5rem); 
+    line-height: 1.2; 
+    letter-spacing: -0.01em; 
+    color: var(--text-primary);
+    margin: 0;
+    }
+
+    .body-large { 
+    font-family: system-ui, sans-serif; 
+    font-weight: 400; 
+    font-size: clamp(1.125rem, 2.5vw, 1.25rem); 
+    line-height: 1.6; 
+    color: var(--text-body); 
+    margin: 0;
+    }
+
+    .body-medium { 
+    font-family: system-ui, sans-serif; 
+    font-weight: 400; 
+    font-size: clamp(1rem, 2vw, 1.125rem); 
+    line-height: 1.5; 
+    color: var(--text-body); 
+    margin: 0;
+    }
+
+    .body-small { 
+    font-family: system-ui, sans-serif; 
+    font-weight: 400; 
+    font-size: 0.875rem; 
+    line-height: 1.4; 
+    color: var(--text-secondary); 
+    margin: 0;
+    }
+
+    /* Button Components */
+    .btn-primary {
+    background: var(--gradient-button);
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    padding: 14px 24px;
+    font-family: system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 48px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.3;
+    gap: 8px;
+    }
+
+    .btn-primary:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 4px 8px rgba(148, 242, 127, 0.3);
+    }
+
+    .btn-primary:active {
+    transform: scale(0.98);
+    }
+
+    .btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-light);
+    border-radius: 9999px;
+    padding: 14px 24px;
+    font-family: system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 48px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.3;
+    gap: 8px;
+    }
+
+    .btn-secondary:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: var(--border-medium);
+    }
+
+    .btn-secondary:active {
+    transform: scale(0.98);
+    }
+
+    /* Header/Navigation */
+    .nav-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    height: 3.5rem;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 0.5px solid var(--border-light);
+    border-radius: 9999px;
+    margin: 1.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    }
+
+    .nav-brand i {
+    color: var(--accent-primary);
+    font-size: 1.5rem;
+    }
+
+    .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    }
+
+    .nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    transition: all 0.2s ease;
+    }
+
+    .nav-link:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-primary);
+    }
+
+    .nav-cta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    }
+
+    .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    }
+
+    .mobile-menu-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    }
+
+    .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 1rem;
+    }
+
+    .mobile-menu.active {
+    display: block;
+    }
+
+    .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    }
+
+    .mobile-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-light);
+    margin-top: 12px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+    background: var(--gradient-hero);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    padding: 7rem 1.5rem 3rem;
+    }
+
+    .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    }
+
+    .hero-subtitle {
+    font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin: 1.5rem 0 2rem;
+    }
+
+    .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 3rem;
+    }
+
+    .vision-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    }
+
+    .vision-card {
+    text-align: center;
+    }
+
+    .vision-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    }
+
+    .vision-icon i {
+    padding: 12px;
+    border-radius: 50%;
+    background: var(--accent-wash);
+    color: var(--accent-text);
+    font-size: 1.5rem;
+    }
+
+    /* Container */
+    .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    }
+
+    /* Section Styles */
+    .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+    margin-bottom: 1rem;
+    }
+
+    .section-footer {
+    text-align: center;
+    margin-top: 3rem;
+    }
+
+    /* Projects Section */
+    .projects-section {
+    padding: 5rem 0;
+    background: white;
+    }
+
+    .research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem 1.5rem;
+    margin-bottom: 2rem;
+    }
+
+    .research-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .research-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--border-medium);
+    }
+
+    .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    }
+
+    .project-header h3 {
+    flex: 1;
+    margin-right: 1rem;
+    }
+
+    .status-badge {
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    }
+
+    .status-completed {
+    background: #dcfce7;
+    color: #166534;
+    }
+
+    .status-progress {
+    background: #dbeafe;
+    color: #1e40af;
+    }
+
+    .status-seeking {
+    background: #fef3c7;
+    color: #92400e;
+    }
+
+    .project-description {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    }
+
+    .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    }
+
+    .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    }
+
+    .project-discipline {
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    }
+
+    .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+    }
+
+    .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 9999px;
+    background: var(--accent-wash);
+    color: var(--accent-text);
+    font-size: 0.75rem;
+    gap: 4px;
+    }
+
+    .project-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    }
+
+    /* Submit Section */
+    .submit-section {
+    padding: 5rem 0;
+    background: #f9fafb;
+    }
+
+    .form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    }
+
+    .submit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    }
+
+    .form-group {
+    display: flex;
+    flex-direction: column;
+    }
+
+    .form-group label {
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(143, 236, 120, 0.1);
+    }
+
+    .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    }
+
+    .form-submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    }
+
+    /* Community Section */
+    .community-section {
+    padding: 5rem 0;
+    background: white;
+    }
+
+    .community-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    .stat-item {
+    text-align: center;
+    }
+
+    .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-text);
+    margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    }
+
+    .research-areas {
+    margin-bottom: 4rem;
+    }
+
+    .research-areas h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    }
+
+    .area-card {
+    text-align: center;
+    }
+
+    .area-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    }
+
+    .area-icon i {
+    padding: 12px;
+    border-radius: 50%;
+    background: var(--accent-wash);
+    color: var(--accent-text);
+    font-size: 1.5rem;
+    }
+
+    .area-projects {
+    font-size: 0.875rem;
+    color: var(--accent-text);
+    font-weight: 500;
+    margin-top: 1rem;
+    }
+
+    .testimonials {
+    margin-bottom: 4rem;
+    }
+
+    .testimonials h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    }
+
+    .testimonial-card {
+    cursor: default;
+    }
+
+    .stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 1rem;
+    }
+
+    .stars i {
+    color: #fbbf24;
+    }
+
+    .testimonial-card blockquote {
+    font-style: italic;
+    margin-bottom: 1rem;
+    }
+
+    .testimonial-author {
+    border-top: 1px solid var(--border-light);
+    padding-top: 1rem;
+    }
+
+    .author-name {
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    }
+
+    .author-role {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+    }
+
+    .author-university {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    }
+
+    .join-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    }
+
+    .join-form-wrapper {
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 2rem;
+    }
+
+    .join-form-wrapper h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    }
+
+    .join-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    }
+
+    /* About Section */
+    .about-section {
+    padding: 5rem 0;
+    background: #f9fafb;
+    }
+
+    .about-vision {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    }
+
+    .vision-item {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    }
+
+    .about-story {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+    }
+
+    .about-story h3 {
+    margin-bottom: 1rem;
+    }
+
+    .about-story p {
+    margin-bottom: 1rem;
+    }
+
+    .upcoming-events h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    }
+
+    .events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    }
+
+    .event-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow 0.2s ease;
+    }
+
+    .event-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .event-content {
+    flex: 1;
+    }
+
+    .event-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    }
+
+    .event-type {
+    padding: 2px 8px;
+    background: var(--accent-wash);
+    color: var(--accent-text);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    }
+
+    .event-location {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    }
+
+    .event-card h4 {
+    margin: 0.5rem 0;
+    }
+
+    .event-details {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+    }
+
+    .detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    }
+
+    .event-action {
+    margin-left: 1.5rem;
+    }
+
+    /* Footer */
+    .footer {
+    background: #f9fafb;
+    padding: 3rem 0;
+    border-top: 1px solid var(--border-light);
+    }
+
+    .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    }
+
+    .footer-brand {
+    max-width: 350px;
+    }
+
+    .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+    }
+
+    .footer-logo i {
+    color: var(--accent-primary);
+    font-size: 1.5rem;
+    }
+
+    .footer-brand p {
+    margin-bottom: 1rem;
+    }
+
+    .footer-social {
+    display: flex;
+    gap: 1rem;
+    }
+
+    .footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent-wash);
+    color: var(--accent-text);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    }
+
+    .footer-social a:hover {
+    background: var(--accent-primary);
+    color: white;
+    }
+
+    .footer-links h4,
+    .footer-contact h4 {
+    margin-bottom: 1rem;
+    }
+
+    .footer-links ul,
+    .footer-contact ul {
+    list-style: none;
+    padding: 0;
+    }
+
+    .footer-links li,
+    .footer-contact li {
+    margin-bottom: 0.5rem;
+    }
+
+    .footer-links a,
+    .footer-contact a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-contact a:hover {
+    color: var(--accent-primary);
+    }
+
+    .footer-contact i {
+    color: var(--accent-primary);
+    margin-right: 0.5rem;
+    }
+
+    .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-light);
+    }
+
+    .footer-bottom-links {
+    display: flex;
+    gap: 1.5rem;
+    }
+
+    .footer-bottom-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+    }
+
+    .footer-bottom-links a:hover {
+    color: var(--accent-primary);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+    .nav-desktop,
+    .nav-cta {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-header {
+        margin: 0.5rem;
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid var(--border-light);
+    }
+    
+    .hero-section {
+        padding: 4rem 1rem;
+        min-height: 80vh;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-secondary {
+        width: 100%;
+        min-height: 52px;
+    }
+
+    .vision-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .research-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .community-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-vision {
+        grid-template-columns: 1fr;
+    }
+
+    .event-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .event-action {
+        margin-left: 0;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    }
+
+    @media (min-width: 769px) {
+    .hero-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    }
+
+    /* Focus styles for accessibility */
+    button:focus,
+    input:focus,
+    textarea:focus,
+    select:focus,
+    a:focus {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+    }
+
+    /* Smooth scrolling */
+    html {
+    scroll-behavior: smooth;
+    }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="nav-header">
+        <div class="nav-brand">
+            <i class="fas fa-book-open"></i>
+            <span class="heading-3">Nexaera</span>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-desktop">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#projects" class="nav-link">Research Projects</a>
+            <a href="#community" class="nav-link">Community</a>
+            <a href="#submit" class="nav-link">Submit Project</a>
+            <a href="#about" class="nav-link">About</a>
+        </nav>
+
+        <!-- Desktop CTA -->
+        <div class="nav-cta">
+            <button class="btn-primary">Join Hub</button>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#projects" class="nav-link">Research Projects</a>
+                <a href="#community" class="nav-link">Community</a>
+                <a href="#submit" class="nav-link">Submit Project</a>
+                <a href="#about" class="nav-link">About</a>
+                <div class="mobile-cta">
+                    <button class="btn-primary">Join Hub</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1 class="heading-1">Empowering Student Research Through Collaboration</h1>
+            
+            <p class="hero-subtitle">
+                Join Nexaera – Student Research Hub, where passionate students from diverse disciplines come together to drive innovation, share knowledge, and create meaningful impact through collaborative research.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="btn-primary">
+                    Join Our Community
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="btn-secondary">
+                    <i class="fas fa-lightbulb"></i>
+                    Submit Your Research
+                </button>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="heading-2">About Nexaera</h2>
+                <p class="body-large">
+                    Nexaera – Student Research Hub is a student-founded research community dedicated to fostering innovation, collaboration, and knowledge sharing. Our mission is to provide a platform for students from various disciplines to come together, explore new ideas, and drive meaningful impact.
+                </p>
+                
+            </div>
+
+            <div class="about-vision">
+                <div class="vision-item">
+                    <div class="vision-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="heading-3">Empower</h3>
+                    <p class="body-small">
+                        We unleash the potential of individuals and communities by providing the tools, resources, and connections needed to turn innovative ideas into impactful research.
+                    </p>
+                </div>
+
+                <div class="vision-item">
+                    <div class="vision-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="heading-3">Elevate</h3>
+                    <p class="body-small">
+                        We amplify diverse perspectives and voices in the research community, ensuring that every student has the opportunity to contribute to meaningful discoveries.
+                    </p>
+                </div>
+
+                <div class="vision-item">
+                    <div class="vision-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="heading-3">Envision</h3>
+                    <p class="body-small">
+                        We shape the future through collaborative research and innovation, bringing together bright minds to solve the world's most pressing challenges.
+                    </p>
+                </div>
+            </div>
+
+            <div class="about-story">
+                <h3 class="heading-3">Our Story</h3>
+                <p class="body-medium">
+                     Nexaera started as a small idea driven by curiosity,the question of how students can move beyond just studying and begin creating, researching, and contributing to real-world conversations. It began with exploring topics like sustainability, economics, and future careers, and slowly grew into a platform focused on learning by doing. Instead of waiting for opportunities, Nexaera was built to create them, through projects, collaborations, and sharing knowledge with others. Our story is about experimenting, learning from mistakes, and building something meaningful step by step. Nexaera is still evolving, shaped by the belief that progress starts with initiative and consistency, not perfection.
+                </p>
+            </div>
+
+
+    <!-- Research Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="heading-2">Featured Research Projects</h2>
+                <p class="body-large">
+                    Discover innovative research projects led by passionate students from diverse disciplines
+                </p>
+            </div>
+
+            <div class="research-grid">
+                <!-- Project 1 -->
+                <div class="research-card">
+                    <div class="project-header">
+                        <h3 class="heading-3">Economics of Climate Change</h3>
+                    </div>
+                    <p class="project-description">
+                        At Nexaera Student Research Hub, we explored how climate change isn’t just an environmental crisis, it’s an economic one.
+From falling crop yields to reduced labour productivity, damaged infrastructure, and shrinking GDP...the impacts are real and measurable.
+Yet, the shift toward green growth and sustainable finance offers hope for a resilient future.
+                    </p>
+                    
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-users"></i>
+                            <span>6 collaborators</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>1/15/2024</span>
+                        </div>
+                    </div>
+
+
+                    <div class="project-tags">
+                        <span class="tag">
+                            <i class="fas fa-tag"></i>
+                            Economics
+                        </span>
+                        <span class="tag">
+                            <i class="fas fa-tag"></i>
+                            Climate change
+                        </span>
+                    </div>
+
+                    <div class="project-actions">
+                        <button class="btn-secondary">
+                            Learn More
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="research-card">
+                    <div class="project-header">
+                        <h3 class="heading-3">Ruppee's fall is real</h3>
+                    </div>
+                    <p class="project-description">
+                        Is the rupee really falling… or is this just another headline panic?
+At Nexaera Student Research Hub , we looked beyond the USD–INR chart and found something more interesting.
+The rupee’s recent weakness isn’t limited to the dollar, it’s depreciating against the euro, pound, yen, and yuan too. When both NEER and REER show a downward trend, it signals something deeper than short-term volatility.
+High domestic inflation, shifting global capital flows, and rising intervention pressures are shaping a real (inflation-adjusted) depreciation, with implications for exports, imports, and macroeconomic stability.
+                    </p>
+                    
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-users"></i>
+                            <span>10 collaborators</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>2/1/2024</span>
+                        </div>
+                    </div>
+
+
+                    <div class="project-tags">
+                        <span class="tag">
+                            <i class="fas fa-tag"></i>
+                            Economy
+                        </span>
+                        <span class="tag">
+                            <i class="fas fa-tag"></i>
+                            Money
+                        </span>
+                        <span class="tag">
+                            <i class="fas fa-tag"></i>
+                            World economy
+                        </span>
+                    </div>
+
+                    <div class="project-actions">
+                        <button class="btn-secondary">
+                            Learn More
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="research-card">
+                    <div class="project-header">
+                        <h3 class="heading-3">World tarrif system</h3>
+                    </div>
+                    <p class="project-description">
+                        Thrilled to share the newsletter-style feature our team designed on Tariffs... their history, types, impacts, and future outlook. From the Tariff Act of 1789 in the US to India’s post-liberalization journey, to today’s trade wars and geopolitical shifts, we explored how tariffs have shaped businesses, consumers, and governments across time.
+This project was not just about economics, but about teamwork. 
+                    </p>
+                    
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-users"></i>
+                            <span>8 collaborators</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>9/1/2023</span>
+                        </div>
+                    </div>
+
+                    <div class="project-tags">
+                        <span class="tag">
+                            <i class="fas fa-tag"></i>
+                            World economy
+                        </span>
+                        <span class="tag">
+                            <i class="fas fa-tag"></i>
+                            Trade
+                        </span>
+                    </div>
+
+                    <div class="project-actions">
+                        <button class="btn-secondary">
+                            Learn More
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="research-card">
+                    <div class="project-header">
+                        <h3 class="heading-3">Evolution of management consulting</h3>
+                    </div>
+                    <p class="project-description">
+                        Consulting in 2025 is shifting fast.
+Three things stand out everywhere we look:
+-Digital transformation and AI becoming everyday tools
+-Sustainability and ESG moving from a checkbox to a growth driver
+-Data guiding almost every big decision
+It’s less about fixing problems now, more about helping businesses create long-term value.
+                    </p>
+                    
+                    <div class="project-meta">
+
+                        <div class="meta-item">
+                            <i class="fas fa-users"></i>
+                            <span>1 collaborators</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>11/15/2023</span>
+                        </div>
+                    </div>
+
+                    <div class="project-tags">
+                        <span class="tag">
+                            <i class="fas fa-tag"></i>
+                            Consulting
+                        </span>
+
+                    </div>
+
+                    <div class="project-actions">
+                        <button class="btn-secondary">
+                            Learn More
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- Community Section -->
+    <section id="community" class="community-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="heading-2">Join Our Community</h2>
+                <p class="body-large">
+                    Connect with passionate students and learners
+                </p>
+            </div>
+
+            <!-- Community Stats -->
+            <div class="community-stats">
+                <div class="stat-item">
+                    <div class="stat-number">45+</div>
+                    <div class="stat-label">Members</div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Completed Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Contributors</div>
+                </div>
+            </div>
+
+            <!-- Research Areas -->
+            <div class="research-areas">
+                <h3 class="heading-3">Research Areas</h3>
+                <div class="research-grid">
+
+                    <div class="research-card area-card">
+                        <div class="area-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4 class="heading-3">Sustainability & Environmental Science</h4>
+                        <p class="body-small">
+                            Addressing climate change and environmental challenges through innovative research.
+                        </p>
+                    </div>
+
+
+                    <div class="research-card area-card">
+                        <div class="area-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="heading-3">Social Sciences & Policy</h4>
+                        <p class="body-small">
+                            Understanding societal challenges and developing evidence-based policy solutions.
+                        </p>
+                    </div>
+
+                    <div class="research-card area-card">
+                        <div class="area-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h4 class="heading-3">Management</h4>
+                        <p class="body-small">
+                            Innovating in engineering solutions and emerging technologies.
+                        </p>
+                    </div>
+
+                    <div class="research-card area-card">
+                        <div class="area-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="heading-3">Economics & Business</h4>
+                        <p class="body-small">
+                            Analyzing economic trends and developing sustainable business models.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="testimonials">
+                <h3 class="heading-3">What Our Community Says</h3>
+                <div class="research-grid">
+                    <div class="research-card testimonial-card">
+                        <blockquote class="body-small">
+                            "It was a great experience working with this team and with so supportive seniors ❤✨
+As the final page of our creative journey...I just want to say a big thankyou to my head and my teammates. Every deadline and design taught me something new. It's been a colourful ride filled with teamwork and inspiration.""
+
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-name">Srilekha Roy</div>
+                            <div class="author-role"></div>
+                        </div>
+                    </div>
+
+                    <div class="research-card testimonial-card">
+
+                        <blockquote class="body-small">
+                            "I just want to take a moment to say a big thank you. Working on this research has been such a mix of chaos, curiosity, and caffeine — but honestly, it’s been worth. huge thanks to our heads for being so patient and supportive.""
+
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-name">Bornika</div>
+                        </div>
+                    </div>
+
+                    <div class="research-card testimonial-card">
+
+                        <blockquote class="body-small">
+                            "It was great working with everyone as the head of marketing team.
+But unfortunately this journey had to come to an end too soon. 
+But anyways I hope yall will have a fruitful and enjoyable college life ahead and thank u again for being a part of nexaera "
+
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-name">Arfah ahmed</div>
+                        </div>
+                    </div>
+                    <div class="research-card testimonial-card">
+
+                        <blockquote class="body-small">
+                            "It’s been such an amazing journey indeed...So grateful to have been a part of Nexaera’25 with such a wonderful team. The journey may have been short but it was truly meaningful I’ve genuinely learnt so much from it and will always cherish the experience. A special thankyou to our amazing heads for their constant guidance and support throughout"
+"
+
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-name">Zaara</div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-card testimonial-card">
+
+                        <blockquote class="body-small">
+                            "As TeamNexaera'25 wraps up its tenure, I wanted to take a moment to reflect on what this journey meant...
+Over the past month and a half, Nexaera – Student Research Hub has been more than just a student-led initiative...it’s been a space for ideas, collaboration, curiosity and fun! We explored meaningful themes, navigated challenges together, and learned to turn small sparks of thought into something impactful."
+
+
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-name">Disha Chakravarty</div>
+                        </div>
+                    </div>
+                    <div class="research-card testimonial-card">
+
+                        <blockquote class="body-small">
+                            " Being a part of the Designing Club has been a wonderful experience. I’m grateful for the creativity we shared, the ideas we built together, and the friendships formed along the way. Thank you all for inspiring me and making this journey so special.
+"
+
+
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-name">-Shruti Shaw</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-book-open"></i>
+                        <span class="heading-3">Nexaera</span>
+                    </div>
+                    <p class="body-small">
+                        Student Research Hub - Empowering the next generation of researchers through collaboration, innovation, and knowledge sharing.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://linkedin.com/company/nexaera-student-research-hub" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-links">
+                    <h4 class="heading-3">Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#projects">Research Projects</a></li>
+                        <li><a href="#community">Community</a></li>
+                        <li><a href="#submit">Submit Project</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-contact">
+                    <h4 class="heading-3">Get in Touch</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:hello@nexaera.org">hello@nexaera.org</a>
+                        </li>
+                        <li>
+                            <a href="mailto:research@nexaera.org">research@nexaera.org</a>
+                        </li>
+                        <li>
+                            <a href="mailto:partnerships@nexaera.org">partnerships@nexaera.org</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="footer-bottom">
+                <p class="body-small">
+                    © 2025 Nexaera Student Research Hub.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Research project submitted successfully! We will review your submission and get back to you soon.');
+            event.target.reset();
+        }
+
+        // Join form submission handler
+        function handleJoinSubmit(event) {
+            event.preventDefault();
+            alert('Welcome to Nexaera! You will receive a confirmation email soon.');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
